@@ -1,0 +1,41 @@
+<mat-card class="section">
+    <h2 class="heading">
+        Items In Cart
+        <mat-icon matBadge="{{count}}">shopping_cart</mat-icon>
+    </h2>
+    <mat-divider></mat-divider>
+    <div *ngIf="cartItems.length; else noItems" class="card">
+        <div *ngFor="let item of cartItems"> 
+            <div>
+                <img class="cart-img" mat-card-img src="./../../../assets/images/{{item.image}}" 
+                    alt="a picture of {{item.name}}"><br>
+                <p>
+                    {{item.name + ' - R' + item.price}}
+                </p>
+                
+                <p>
+                    <button mat-raised-button color="primary" (click)="remove(item)">
+                        remove
+                        <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+                </p>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+        <p>
+            <strong class="label">Total: R {{total}}</strong>
+        </p>
+        <p>
+            <button routerLink="/login" mat-raised-button color="primary">
+                Click Here To Login
+            </button>
+        </p>
+    </div>
+
+    <ng-template #noItems>
+        <div class="card">
+            Empty Cart
+        </div>
+    </ng-template>
+
+</mat-card>

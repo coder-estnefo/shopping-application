@@ -1,0 +1,44 @@
+<!--<form [formGroup]="loginDetails" (ngSubmit)="login(loginDetails)">
+    <label>{{loginError}}</label>
+    <label>
+        Username:
+        <input type="text" formControlName="username" placeholder="Enter Username">
+    </label>
+
+    <label>
+        <input type="password" formControlName="password" placeholder="Enter Password">
+    </label>
+
+    <button type="submit" [disabled]="loginDetails.invalid">Login</button>
+
+</form>-->
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="error">
+            {{loginError}}
+        </p>
+        <form [formGroup]="loginDetails" (ngSubmit)="login(loginDetails)">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username"
+                    placeholder="Enter Username" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password"
+                    placeholder="Enter Password" required>
+            </mat-form-field><br>
+            
+            <button mat-raised-button color="primary" class="btn"
+                [disabled]="loginDetails.invalid">
+                Login
+            </button>
+            
+        </form>
+    </mat-card-content>
+
+</mat-card>
