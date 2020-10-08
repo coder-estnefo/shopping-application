@@ -24,8 +24,8 @@
         <form [formGroup]="loginDetails" (ngSubmit)="login(loginDetails)">
             <mat-form-field appearance="outline">
                 <mat-label>Username</mat-label>
-                <input matInput formControlName="username"
-                    placeholder="Enter Username" required>
+                <input matInput type="email" formControlName="username"
+                    placeholder="Enter email" required>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>

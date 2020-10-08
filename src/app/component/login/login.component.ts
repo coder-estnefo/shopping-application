@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private auth: AngularFireAuth
     ) { }
 
   ngOnInit(): void {
@@ -25,12 +27,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(details) {
+
+    this.auth.signInWithEmailAndPassword(details.value.username, details.value.password).then(() => {
+      this.router.navigate(['/home']);
+    }).catch(error => {
+      this.loginError = "Invalid Login Details";
+    });
+
+    /*
     if(details.value.username === 'user' && details.value.password === 'user') {
         this.router.navigate(['/home']);
     } else {
         this.loginError = "Invalid Login Details";
 
     }
+    */
   }
   
 

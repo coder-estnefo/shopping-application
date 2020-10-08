@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title style="text-align: center;">
+            New Item
+        </mat-card-title>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Item</mat-label>
+            <input matInput placeholder="Ex. Pizza" type="text" [(ngModel)]="item" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" [(ngModel)]="price" min="1.00" required>
+        </mat-form-field>
+
+        <div class="button-wrap">
+            <label class ="new-button" for="upload-image"> Choose Image</label>
+            <input id="upload-image" type="file" (change)="uploadFile($event)" 
+                accept="image/*" required>
+        </div>
+        
+        <div class="spacer"> 
+            <mat-progress-bar mode="determinate" value="{{uploadPercent | async}}"></mat-progress-bar>
+        </div>
+            
+        <button mat-raised-button color="primary" class="btn"
+                (click)="uploadItem()">
+            Upload Item
+        </button>
+            
+    </mat-card-content>
+</mat-card>

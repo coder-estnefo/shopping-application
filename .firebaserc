@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shopping-application-f2282": {
+      "hosting": {
+        "shopping-application": [
+          "shopping-application-f2282"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopping-application-f2282"
+  }
+}

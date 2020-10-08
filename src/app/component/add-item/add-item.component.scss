@@ -1,0 +1,50 @@
+.example-card {
+    max-width: 600px;
+    margin: 100px auto;
+}
+
+.error {
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.btn {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.new-button {
+    display: inline-block;
+    padding: 0 16px; 
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #673ab7;
+    font-size: 16px;
+    color: #fff;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+}
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  left: 0;
+  font-size: 15px;
+  color: rgb(153,153,153);
+}
+.button-wrap {
+  position: relative;
+}
+
+.spacer {
+    margin: 4px 0 16px;
+}

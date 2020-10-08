@@ -3,15 +3,17 @@ import { Item } from '../../modal/item';
 import { Items } from '../../mocks/test.mock';
 
 import { Observable, of } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
 
-  getItems(): Observable<Item[]> {
-    return of (Items);
+  getItems() {
+    //return of (Items);
+    return this.firestore.collection<Item>('items').valueChanges();
   }
 }

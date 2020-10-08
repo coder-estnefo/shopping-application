@@ -6,6 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment.prod';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +27,11 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { AddItemComponent } from './component/add-item/add-item.component';
+
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +40,17 @@ import { MatListModule } from '@angular/material/list';
     TopBarComponent,
     CartComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -47,6 +63,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatDividerModule,
     MatListModule,
+    NgxMatFileInputModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../../../modal/item';
 import { ItemService } from '../../service/item.service';
 import { CartService } from '../../service/cart.service';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-display-items',
@@ -15,7 +16,8 @@ export class DisplayItemsComponent implements OnInit {
   count;
   constructor(
     private itemService: ItemService,
-    private cartService: CartService
+    private cartService: CartService,
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class DisplayItemsComponent implements OnInit {
     this.count = this.cartService.getNoItems();
   }
 
+  getImage(img) {
+    // images/yq7dudgvxl.png
+    return this.storage.ref(`/images/${img}`).getDownloadURL();
+  }
 
 
 }

@@ -5,30 +5,23 @@
     </h2>
     <mat-divider></mat-divider>
     <div *ngIf="cartItems.length; else noItems" class="card">
-        <div *ngFor="let item of cartItems"> 
-            <div>
+        <div *ngFor="let item of cartItems" class="items"> 
+            <div class="item-img">
                 <img class="cart-img" mat-card-img src="./../../../assets/images/{{item.image}}" 
-                    alt="a picture of {{item.name}}"><br>
-                <p>
-                    {{item.name + ' - R' + item.price}}
-                </p>
-                
-                <p>
-                    <button mat-raised-button color="primary" (click)="remove(item)">
-                        remove
-                        <mat-icon>remove_shopping_cart</mat-icon>
-                    </button>
-                </p>
+                    alt="a picture of {{item.name}}">
             </div>
-            <mat-divider></mat-divider>
+            <div class="item-desc">
+                {{item.name + ' - R' + item.price}}
+            </div>
+            <div class="item-controls">
+                <button mat-raised-button color="primary" (click)="remove(item)">
+                    remove
+                    <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+            </div>
         </div>
         <p>
             <strong class="label">Total: R {{total}}</strong>
-        </p>
-        <p>
-            <button routerLink="/login" mat-raised-button color="primary">
-                Click Here To Login
-            </button>
         </p>
     </div>
 

@@ -4,7 +4,16 @@
     <button mat-button routerLink="/shop">
         shop
     </button>
+    <button mat-button routerLink="/home">
+        home
+    </button>
     <button mat-button routerLink="/cart">
-        <mat-icon matBadge="">shopping_cart</mat-icon>
+        <mat-icon matBadge="{{cartService.getNoItems()}}">shopping_cart</mat-icon>
+    </button>
+    <!-- 
+        TEMPLATE 
+    -->
+    <button mat-button routerLink="/login">
+        Login
     </button>
 </mat-toolbar>
