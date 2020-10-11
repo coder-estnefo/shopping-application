@@ -10,7 +10,7 @@ import { CartService } from '../../service/cart.service';
 export class CartComponent implements OnInit {
 
   cartItems: Item[] = [];
-  total = 0.0;
+  total;
   count;
 
   constructor(private cartService: CartService) { }

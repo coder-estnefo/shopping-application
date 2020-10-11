@@ -10,10 +10,14 @@
     <button mat-button routerLink="/cart">
         <mat-icon matBadge="{{cartService.getNoItems()}}">shopping_cart</mat-icon>
     </button>
-    <!-- 
-        TEMPLATE 
-    -->
-    <button mat-button routerLink="/login">
-        Login
+    <button *ngIf="auth.user | async; else showLogin" 
+        mat-button (click)="logout()">
+        Logout
     </button>
+
+    <ng-template #showLogin>
+        <button mat-button routerLink="/login">
+            Login
+        </button>
+    </ng-template>
 </mat-toolbar>

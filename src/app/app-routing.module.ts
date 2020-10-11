@@ -5,14 +5,16 @@ import { DisplayItemsComponent } from './component/display-items/display-items.c
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { AddItemComponent } from './component/add-item/add-item.component';
+import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {path: '', component: DisplayItemsComponent},
   {path: 'shop', component: DisplayItemsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent,
+  {path: 'home', component: HomeComponent, ...canActivate(redirectUnauthorizedToLogin),
     children: [
       {path: 'add-item', component: AddItemComponent}
     ]},

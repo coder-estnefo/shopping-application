@@ -3,6 +3,8 @@ import { Item } from '../../../modal/item';
 import { ItemService } from '../../service/item.service';
 import { CartService } from '../../service/cart.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { of } from 'rxjs';
+import { finalize, first, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-display-items',
@@ -17,7 +19,7 @@ export class DisplayItemsComponent implements OnInit {
   constructor(
     private itemService: ItemService,
     private cartService: CartService,
-    private storage: AngularFireStorage
+    public storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
@@ -33,11 +35,5 @@ export class DisplayItemsComponent implements OnInit {
     this.cartService.addToCart(item);
     this.count = this.cartService.getNoItems();
   }
-
-  getImage(img) {
-    // images/yq7dudgvxl.png
-    return this.storage.ref(`/images/${img}`).getDownloadURL();
-  }
-
 
 }

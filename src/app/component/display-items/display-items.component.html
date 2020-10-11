@@ -7,8 +7,7 @@
     <div class="box">
         <div class="item" *ngFor="let item of food_items">
             <mat-card class="item-card">
-                <!--<img mat-card-img src="./../../../assets/images/{{item.image}}" -->
-                <img mat-card-img [src]="getImage(item.image)"
+                <img mat-card-img [src]="item.image"
                     alt="a picture of {{item.name}}">
                 <mat-card-content>
                     <strong>{{item.name}}</strong>

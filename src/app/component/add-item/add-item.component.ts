@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-item',
@@ -31,10 +32,19 @@ export class AddItemComponent implements OnInit {
     const filename = file.name;
     const fileExt = filename.split('.').pop();
     const filePath = Math.random().toString(36).substring(2) + '.' + fileExt;
+    const fileRef = this.storage.ref(`images/${filePath}`);
     const task = this.storage.upload(`images/${filePath}`, file);
 
-    this.image = filePath;
     this.uploadPercent = task.percentageChanges();
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe(downloadURL => {
+          this.image = downloadURL;
+        });
+      })
+   )
+  .subscribe()
   }
 
   uploadItem() {
@@ -48,7 +58,7 @@ export class AddItemComponent implements OnInit {
       console.log("not added error ->" + error);
     }).then(() => {
       console.log("added");
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/shop"]);
     })
 
   }

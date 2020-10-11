@@ -28,20 +28,20 @@ export class LoginComponent implements OnInit {
 
   login(details) {
 
-    this.auth.signInWithEmailAndPassword(details.value.username, details.value.password).then(() => {
-      this.router.navigate(['/home']);
-    }).catch(error => {
-      this.loginError = "Invalid Login Details";
-    });
-
-    /*
     if(details.value.username === 'user' && details.value.password === 'user') {
+      this.auth.signInAnonymously().then(() => {
         this.router.navigate(['/home']);
-    } else {
+      }).catch(() => {
         this.loginError = "Invalid Login Details";
-
+      });
+    } else {
+      this.auth.signInWithEmailAndPassword(details.value.username, details.value.password).then(() => {
+        this.router.navigate(['/home']);
+      }).catch(() => {
+        this.loginError = "Invalid Login Details";
+      });
     }
-    */
+  
   }
   
 

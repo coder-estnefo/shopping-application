@@ -5,13 +5,13 @@
     </h2>
     <mat-divider></mat-divider>
     <div *ngIf="cartItems.length; else noItems" class="card">
-        <div *ngFor="let item of cartItems" class="items"> 
+        <mat-card *ngFor="let item of cartItems" class="items"> 
             <div class="item-img">
-                <img class="cart-img" mat-card-img src="./../../../assets/images/{{item.image}}" 
+                <img class="cart-img" mat-card-img [src]="item.image" 
                     alt="a picture of {{item.name}}">
             </div>
             <div class="item-desc">
-                {{item.name + ' - R' + item.price}}
+                <h3>{{item.name + ' - R' + item.price}}</h3>
             </div>
             <div class="item-controls">
                 <button mat-raised-button color="primary" (click)="remove(item)">
@@ -19,7 +19,7 @@
                     <mat-icon>remove_shopping_cart</mat-icon>
                 </button>
             </div>
-        </div>
+        </mat-card>
         <p>
             <strong class="label">Total: R {{total}}</strong>
         </p>

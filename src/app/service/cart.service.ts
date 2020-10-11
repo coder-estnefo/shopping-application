@@ -6,18 +6,18 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   cart = [];
-  total = 0;
+  total = 0.00;
 
   constructor() { }
 
   addToCart(item) {
     this.cart.push(item);
-    this.total += Math.round(item.price);
+    this.total += item.price;
   }
 
   removeFromCart(item) {
     this.cart.splice(this.cart.indexOf(item),1);
-    this.total -= Math.round(item.price);
+    this.total -= item.price;
   }
 
   getCartItems() {
@@ -29,6 +29,6 @@ export class CartService {
   }
 
   getTotalPrice() {
-    return this.total;
+    return this.total.toFixed(2);
   }
 }
