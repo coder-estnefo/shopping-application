@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -12,19 +13,25 @@ import { finalize } from 'rxjs/operators';
 })
 export class AddItemComponent implements OnInit {
 
-  item;
-  price;
+  //item;
+  //price;
   image;
   uploadPercent: Observable<number>;
+  itemForm;
 
   constructor(
     private storage: AngularFireStorage,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    
+    this.itemForm = this.formBuilder.group({
+      item: ['', Validators.required],
+      price: ['', Validators.required],
+      img: ['', Validators.required]
+    });
   }
 
   uploadFile(event) {
@@ -47,17 +54,21 @@ export class AddItemComponent implements OnInit {
   .subscribe()
   }
 
-  uploadItem() {
+  uploadItem(form) {
+    let item_name = form.value.item;
+    let item_price = form.value.price;
+    let item_image = this.image;
+
     const id = this.firestore.createId();
 
     this.firestore.collection("items").doc(id).set({
-      name: this.item,
-      price: this.price,
-      image: this.image
+      name: item_name,
+      price: item_price,
+      image: item_image
     }).catch(error => {
-      console.log("not added error ->" + error);
+      //console.log("not added error ->" + error);
     }).then(() => {
-      console.log("added");
+      //console.log("added");
       this.router.navigate(["/shop"]);
     })
 
