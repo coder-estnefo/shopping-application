@@ -31,6 +31,7 @@ import { AddItemComponent } from './component/add-item/add-item.component';
 
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     CartComponent,
     LoginComponent,
     HomeComponent,
-    AddItemComponent
+    AddItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
