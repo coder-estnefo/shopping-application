@@ -12,27 +12,18 @@ export class DashboardComponent implements OnInit {
 
   items: Item[];
   items_count;
-  
+
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
     this.getItems();
-    this.getNoItems();
   }
 
-  async getItems() {
-    this.itemService.getItems().subscribe(item => this.items = item);
-    console.log("getItems()=>",this.items);
-  }
-
-  async getNoItems() {
-    this.items_count = this.items;
-    console.log("getNoItems()=>",this.items_count);
-  }
-
-  goTime() {
-    this.getItems();
-    this.getNoItems();
+  getItems() {
+    this.itemService.getItems().subscribe(item => {
+      this.items = item;
+      this.items_count = this.items.length;
+    });
   }
 
 }

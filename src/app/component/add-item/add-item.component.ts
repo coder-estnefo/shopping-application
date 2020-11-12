@@ -69,7 +69,7 @@ export class AddItemComponent implements OnInit {
       //console.log("not added error ->" + error);
     }).then(() => {
       //console.log("added");
-      this.router.navigate(["/shop"]);
+      this.router.navigate(["/home/dashboard"]);
     })
 
   }

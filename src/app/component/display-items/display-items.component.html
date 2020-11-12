@@ -1,7 +1,9 @@
 <mat-card class="section">
     <h2 class="heading">
         Items
-        <mat-icon matBadge="{{count}}">shopping_cart</mat-icon>
+        <button mat-button  routerLink="/cart" color="primary">
+            <mat-icon matBadge="{{count}}">shopping_cart</mat-icon>
+        </button>
     </h2>
     <mat-divider></mat-divider>
     <div class="box">

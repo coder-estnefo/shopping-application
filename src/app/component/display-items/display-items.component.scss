@@ -12,7 +12,8 @@
 .box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
 .item {
@@ -23,7 +24,8 @@
 
 .item-card {
     text-align: center;
-    
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 img {
