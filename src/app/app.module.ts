@@ -32,6 +32,7 @@ import { AddItemComponent } from './component/add-item/add-item.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FooterComponent } from './component/footer/footer.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { FooterComponent } from './component/footer/footer.component';
     LoginComponent,
     HomeComponent,
     AddItemComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

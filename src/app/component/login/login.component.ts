@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     if(details.value.username === 'user' && details.value.password === 'user') {
       this.auth.signInAnonymously().then(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/dashboard']);
       }).catch(() => {
         this.loginError = "Invalid Login Details";
       });

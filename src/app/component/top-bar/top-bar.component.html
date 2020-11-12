@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="toolbar">
     <span>Shopping Application</span>
     <span class="example-spacer"></span>
     <button mat-button routerLink="/shop">
-        shop
+        Shop
     </button>
-    <button mat-button routerLink="/home">
-        home
+    <button mat-button routerLink="/home/dashboard">
+        Home
     </button>
     <button mat-button routerLink="/cart">
         <mat-icon matBadge="{{cartService.getNoItems()}}">shopping_cart</mat-icon>
