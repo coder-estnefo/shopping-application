@@ -13,25 +13,27 @@
 
 </form>-->
 
-<mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
+<mat-card class="example-card" style="text-align: center;"> 
+    
+    <mat-card-title>Login</mat-card-title>
+    
     <mat-card-content>
         <p class="error">
             {{loginError}}
         </p>
         <form [formGroup]="loginDetails" (ngSubmit)="login(loginDetails)">
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" class="textbox">
                 <mat-label>Username</mat-label>
                 <input matInput type="text" formControlName="username"
                     placeholder="Enter username" required>
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" class="textbox">
                 <mat-label>Password</mat-label>
                 <input matInput type="password" formControlName="password"
                     placeholder="Enter Password" required>
             </mat-form-field><br>
+
+            <p>Not registered? <a routerLink="/register">Register now</a></p>
             
             <button mat-raised-button color="primary" class="btn" 
                 [disabled]="loginDetails.invalid">

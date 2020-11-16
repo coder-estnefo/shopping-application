@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       });
     } else {
       this.auth.signInWithEmailAndPassword(details.value.username, details.value.password).then(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/user']);
       }).catch(() => {
         this.loginError = "Invalid Login Details";
       });

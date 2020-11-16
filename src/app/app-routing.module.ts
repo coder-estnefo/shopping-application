@@ -7,6 +7,8 @@ import { HomeComponent } from './component/home/home.component';
 import { AddItemComponent } from './component/add-item/add-item.component';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { RegisterComponent } from './component/register/register.component';
+import { UserComponent } from './component/user/user.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -15,11 +17,14 @@ const routes: Routes = [
   {path: 'shop', component: DisplayItemsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent, ...canActivate(redirectUnauthorizedToLogin),
     children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'add-item', component: AddItemComponent}
-    ]},
+    ]
+  },
+  {path: 'user', component: UserComponent}
 ];
 
 @NgModule({
