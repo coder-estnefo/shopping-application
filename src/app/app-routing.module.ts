@@ -24,7 +24,7 @@ const routes: Routes = [
       {path: 'add-item', component: AddItemComponent}
     ]
   },
-  {path: 'user', component: UserComponent}
+  {path: 'user', component: UserComponent, ...canActivate(redirectUnauthorizedToLogin)}
 ];
 
 @NgModule({
