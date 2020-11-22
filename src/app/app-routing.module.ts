@@ -9,6 +9,7 @@ import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserComponent } from './component/user/user.component';
+import { ListComponent } from './component/list/list.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -24,7 +25,11 @@ const routes: Routes = [
       {path: 'add-item', component: AddItemComponent}
     ]
   },
-  {path: 'user', component: UserComponent, ...canActivate(redirectUnauthorizedToLogin)}
+  {path: 'user', component: UserComponent, ...canActivate(redirectUnauthorizedToLogin),
+    children: [
+      {path: 'list', component: ListComponent}
+    ]
+  }
 ];
 
 @NgModule({

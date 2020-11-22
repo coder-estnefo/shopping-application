@@ -31,4 +31,8 @@ export class CartService {
   getTotalPrice() {
     return this.total.toFixed(2);
   }
+
+  clearCart() {
+    return this.cart.splice(0, this.cart.length);
+  }
 }

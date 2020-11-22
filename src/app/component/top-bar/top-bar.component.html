@@ -4,9 +4,12 @@
     <button mat-button routerLink="/shop">
         Shop
     </button>
-    <!-- <button mat-button routerLink="/user">
+    <!--<button mat-button routerLink="/user">
         Account
-    </button> -->
+    </button>
+    <button mat-button routerLink="/home">
+        Admin
+    </button>-->
     <button mat-button routerLink="/cart">
         <mat-icon matBadge="{{cartService.getNoItems()}}">shopping_cart</mat-icon>
     </button>
@@ -14,7 +17,7 @@
         mat-button (click)="logout()">
         Logout
     </button>
-
+    
     <ng-template #showLogin>
         <button mat-button routerLink="/login">
             Login

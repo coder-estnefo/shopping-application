@@ -10,6 +10,8 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class TopBarComponent implements OnInit {
 
+  userID;
+
   constructor(
     public cartService: CartService,
     public auth: AngularFireAuth,
@@ -17,6 +19,7 @@ export class TopBarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
 
   logout() {

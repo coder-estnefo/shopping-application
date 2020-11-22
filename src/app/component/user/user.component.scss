@@ -1,6 +1,24 @@
+.sidenav {
+    width: 210px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    padding: 6px;
+}
+
 .main {
     margin-left: 240px;
     position: absolute;
     top: 80px;
     width: 65vw;
+}
+
+.btn {
+    width: 100%;
+    margin: 2px;
+    text-align: left;
+}
+
+.card {
+    min-height: 100%;
 }

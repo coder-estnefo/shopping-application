@@ -28,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { AddItemComponent } from './component/add-item/add-item.component';
+import { MatTableModule } from '@angular/material/table';
 
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -35,6 +36,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { RegisterComponent } from './component/register/register.component';
 import { UserComponent } from './component/user/user.component';
+import { ListComponent } from './component/list/list.component';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { UserComponent } from './component/user/user.component';
     FooterComponent,
     DashboardComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { UserComponent } from './component/user/user.component';
     MatDividerModule,
     MatListModule,
     NgxMatFileInputModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

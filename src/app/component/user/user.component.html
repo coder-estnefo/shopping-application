@@ -1,5 +1,22 @@
+<div class="sidenav">
+    <mat-card class="card">
+    <button routerLink="./../user" mat-raised-button color="primary" class="btn">
+        <mat-icon>home</mat-icon>Home
+    </button>
+    <!-- <button routerLink="./list" mat-raised-button color="primary" class="btn">
+        <mat-icon>view_list</mat-icon>Orders
+    </button> -->
+    </mat-card>
+</div>
+
 <div class="main">
     <mat-card class="card">
+        
+        <div *ngIf="noItems > 0">
+            <button mat-raised-button color="" (click)="checkout()">
+                <mat-icon>shopping_basket</mat-icon>Checkout
+            </button>
+        </div>
         <router-outlet></router-outlet>
     </mat-card>
 </div>
