@@ -115,4 +115,8 @@ export class CartService {
     return total;
   }
 
+  clearCart() {
+    return this.cartList = [];
+  }
+
 }

@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.noItems = this.cart.getNoItems();
+    this.noItems = this.cart.getCartCount();
     this.getUserID();
   }
 
@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
       }).then(() => {
         //console.log("saved");
         this.cart.clearCart();
-        this.noItems = this.cart.getNoItems();
+        this.noItems = this.cart.getCartCount();
       }).catch(e => {
         //console.log("message error->",e);
       });
