@@ -11,7 +11,7 @@
         Admin
     </button>-->
     <button mat-button routerLink="/cart">
-        <mat-icon matBadge="{{cartService.getNoItems()}}">shopping_cart</mat-icon>
+        <mat-icon matBadge="{{cartService.getCartCount()}}">shopping_cart</mat-icon>
     </button>
     <button *ngIf="auth.user | async; else showLogin" 
         mat-button (click)="logout()">

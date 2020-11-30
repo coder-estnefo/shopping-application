@@ -13,12 +13,18 @@
                     alt="a picture of {{item.name}}">
             </div>
             <div class="item-desc">
-                <h3>{{item.name + ' - R' + item.price}}</h3>
+                <h3>{{item.name + ' - R' + item.price}} x {{item.quantity}}</h3>
             </div>
             <div class="item-controls">
                 <button mat-raised-button color="primary" (click)="remove(item)">
                     remove
                     <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" (click)="addItem(item)">
+                    <mat-icon>add_circle</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" (click)="removeOneItem(item)">
+                    <mat-icon>remove_circle</mat-icon>
                 </button>
             </div>
         </mat-card>

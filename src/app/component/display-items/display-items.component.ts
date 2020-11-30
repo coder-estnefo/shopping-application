@@ -24,7 +24,7 @@ export class DisplayItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFoodItems();
-    this.count = this.cartService.getNoItems();
+    this.count = this.cartService.getCartCount();
   }
 
   getFoodItems() {
@@ -33,7 +33,7 @@ export class DisplayItemsComponent implements OnInit {
 
   addToCart(item: Item) {
     this.cartService.addToCart(item);
-    this.count = this.cartService.getNoItems();
+    this.count = this.cartService.getCartCount();
   }
 
 }
