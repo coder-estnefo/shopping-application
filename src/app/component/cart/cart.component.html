@@ -1,45 +1,69 @@
 <mat-card class="section">
-    <h2 class="heading">
-        Items In Cart
-        <button mat-button  routerLink="/cart" color="primary">
-            <mat-icon matBadge="{{count}}">shopping_cart</mat-icon>
+  <h2 class="heading">
+    Items In Cart
+    <button mat-button routerLink="/cart" color="primary">
+      <mat-icon matBadge="{{ count }}">shopping_cart</mat-icon>
+    </button>
+  </h2>
+  <mat-divider></mat-divider>
+
+  <div class="card" *ngIf="cartItems.length > 0; else noItems">
+    <mat-card class="item" *ngFor="let item of cartItems">
+      <div class="item-image">
+        <img
+          class="image"
+          mat-card-img
+          [src]="item.image"
+          alt="a picture of {{ item.name }}"
+        />
+      </div>
+
+      <div class="item-info">
+        <label class="item-title" color="tertiary">
+          {{ item.name }} x {{ item.quantity }}
+        </label>
+        <br />
+        <label class="item-price">R {{ item.price }}</label>
+        <br />
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="addItem(item)"
+          class="add"
+        >
+          <mat-icon>add_circle</mat-icon>
         </button>
-    </h2>
-    <mat-divider></mat-divider>
-    <div *ngIf="cartItems.length; else noItems" class="card">
-        <mat-card *ngFor="let item of cartItems" class="items"> 
-            <div class="item-img">
-                <img class="cart-img" mat-card-img [src]="item.image" 
-                    alt="a picture of {{item.name}}">
-            </div>
-            <div class="item-desc">
-                <h3>{{item.name + ' - R' + item.price}} x {{item.quantity}}</h3>
-            </div>
-            <div class="item-controls">
-                <button mat-raised-button color="primary" (click)="remove(item)">
-                    remove
-                    <mat-icon>remove_shopping_cart</mat-icon>
-                </button>
-                <button mat-raised-button color="primary" (click)="addItem(item)">
-                    <mat-icon>add_circle</mat-icon>
-                </button>
-                <button mat-raised-button color="primary" (click)="removeOneItem(item)">
-                    <mat-icon>remove_circle</mat-icon>
-                </button>
-            </div>
-        </mat-card>
-        <p>
-            <strong class="label">Total: R {{total}}</strong>
-            <button mat-raised-button color="primary" routerLink="/user">
-                <mat-icon>shopping_basket</mat-icon>Checkout
-            </button>
-        </p>
-    </div>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="removeOneItem(item)"
+          class="remove"
+        >
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+        <br />
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="remove(item)"
+          class="remove-all"
+        >
+          remove
+          <mat-icon>remove_shopping_cart</mat-icon>
+        </button>
+      </div>
+    </mat-card>
 
-    <ng-template #noItems>
-        <div class="card">
-            Empty Cart
-        </div>
-    </ng-template>
+    <p class="center">
+      <strong class="total-price">Total: R {{ total }}</strong>
+      <br />
+      <button mat-raised-button color="primary" routerLink="/user">
+        <mat-icon>shopping_basket</mat-icon>Checkout
+      </button>
+    </p>
+  </div>
 
+  <ng-template #noItems>
+    <div class="card center">Empty Cart</div>
+  </ng-template>
 </mat-card>

@@ -6,14 +6,17 @@ import { Observable, of } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ItemService {
-
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) {}
 
   getItems() {
     //return of (Items);
     return this.firestore.collection<Item>('items').valueChanges();
+  }
+
+  getUserOrders(id) {
+    return this.firestore.collection(`orders/history/${id}`).valueChanges();
   }
 }

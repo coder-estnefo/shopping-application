@@ -6,26 +6,22 @@ import { CartService } from 'src/app/service/cart.service';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.scss']
+  styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent implements OnInit {
-
   userID;
 
   constructor(
     public cartService: CartService,
     public auth: AngularFireAuth,
     private router: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.auth.signOut().then(() => {
       this.router.navigate(['/login']);
     });
   }
-
 }
